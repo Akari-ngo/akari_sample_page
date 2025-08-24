@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Australia Guide｜オーストラリア紹介サイト</title>
+  <meta name="description" content="初めてでも安心！オーストラリアの基本情報、主要都市、自然、気候、旅行のコツ、モデルプランを1ページに凝縮。" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦘</text></svg>">
+  <style>
+    :root{
+      --bg:#0b0c10; --surface:#111218; --muted:#9aa3af; --text:#eef2f7; --primary:#5eead4; --accent:#60a5fa; --card:#151823; --ring:#1f2937;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;background:radial-gradient(1200px 800px at 10% 0%,#0e1220,transparent),linear-gradient(180deg,#0b0c10,#0b0c10);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block;border-radius:16px}
+
+    /* Header */
+    .header{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:color-mix(in srgb, var(--surface) 70%, transparent);border-bottom:1px solid var(--ring)}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800}
+    .brand-badge{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:12px;background:color-mix(in srgb,var(--primary) 18%, transparent)}
+    .links{display:none;gap:18px}
+    .cta{display:flex;gap:8px}
+    .btn{border:1px solid var(--ring);padding:10px 14px;border-radius:999px;background:#0f1220;color:var(--text);font-weight:600}
+    .btn.primary{border:none;background:linear-gradient(90deg,var(--primary),var(--accent));color:#071317}
+
+    /* Hero */
+    .hero{position:relative}
+    .hero-img{height:66vh;min-height:420px;background:url('https://images.unsplash.com/photo-1506976785307-8732e854ad75?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(11,12,16,.6) 60%,rgba(11,12,16,1) 100%)}
+    .hero-inner{position:absolute;inset:0;display:grid;align-items:end}
+    .hero-card{max-width:1100px;margin:0 auto;padding:0 16px 44px}
+    .headline{font-size:clamp(28px,5vw,56px);line-height:1.1;font-weight:900;margin:0 0 8px}
+    .sub{color:var(--muted);max-width:700px}
+    .chiprow{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+    .chip{border:1px solid var(--ring);padding:8px 12px;border-radius:999px;font-size:14px;color:var(--muted)}
+
+    /* Sections */
+    section{padding:72px 0}
+    h2{font-size:clamp(22px,3.2vw,34px);margin:0 0 6px}
+    .lead{color:var(--muted);margin:0 0 28px}
+    .grid{display:grid;gap:18px}
+    .grid-3{grid-template-columns:repeat(1,1fr)}
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:20px;overflow:hidden}
+    .card-body{padding:18px}
+    .meta{display:grid;gap:6px;color:var(--muted);font-size:14px}
+
+    /* Cities */
+    .city{display:grid;gap:14px;grid-template-columns:1fr}
+    .city h3{margin:0}
+
+    /* Climate chart (simple SVG) */
+    .chart{background:var(--card);border:1px solid var(--ring);border-radius:20px;padding:16px}
+    .legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin:8px 0 0}
+    .key{display:inline-flex;align-items:center;gap:6px}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .dot.s{background:#34d399}
+    .dot.m{background:#60a5fa}
+    .dot.b{background:#f59e0b}
+
+    /* Tips */
+    .tips{display:grid;gap:14px}
+    .tips li{list-style:none;background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:14px}
+
+    /* Plan */
+    .plan{display:grid;gap:12px}
+    .day{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:14px}
+
+    /* FAQ */
+    details{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:14px}
+    summary{cursor:pointer;font-weight:700}
+
+    /* Footer */
+    footer{padding:32px 0;color:var(--muted)}
+
+    /* Utilities */
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .spacer{height:24px}
+    .muted{color:var(--muted)}
+
+    /* Responsive */
+    @media(min-width:760px){
+      .links{display:flex}
+      .grid-3{grid-template-columns:repeat(3,1fr)}
+      .city{grid-template-columns:320px 1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="wrap nav">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true">🦘</span>
+        <span>Australia Guide</span>
+      </div>
+      <nav class="links" aria-label="メインナビゲーション">
+        <a href="#about">概要</a>
+        <a href="#cities">主要都市</a>
+        <a href="#nature">自然</a>
+        <a href="#climate">気候</a>
+        <a href="#tips">旅行のコツ</a>
+        <a href="#plan">モデルプラン</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="cta">
+        <a class="btn" href="#plan">旅の計画</a>
+        <button class="btn primary" id="toTopBtn" type="button" title="ページ上部へ">TOPへ</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="ヒーローセクション">
+    <div class="hero-img" role="img" aria-label="シドニー・オペラハウスの風景"></div>
+    <div class="hero-inner">
+      <div class="hero-card">
+        <h1 class="headline">南半球の宝石、オーストラリアへようこそ</h1>
+        <p class="sub">世界自然遺産と多文化が共存する大陸。初めてでも安心して楽しめる基本情報や見どころ、旅行のコツをこの1ページにまとめました。</p>
+        <div class="chiprow" aria-label="注目ポイント">
+          <span class="chip">英語 / AUD</span>
+          <span class="chip">時差：日本+1時間（州により異なる）</span>
+          <span class="chip">直行便：約8〜10時間</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- 概要 -->
+    <section id="about">
+      <div class="wrap">
+        <h2>オーストラリアの概要</h2>
+        <p class="lead">広大な自然と洗練された都市が同居。海・砂漠・熱帯雨林・山岳まで多彩な景観が広がります。</p>
+        <div class="grid grid-3">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop" alt="シドニー湾の風景" />
+            <div class="card-body">
+              <h3>基本情報</h3>
+              <p class="meta">
+                <span>首都：キャンベラ</span>
+                <span>最大都市：シドニー</span>
+                <span>公用語：英語</span>
+                <span>通貨：オーストラリア・ドル（AUD）</span>
+              </p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1526481280698-8fcc13fd4b9b?q=80&w=1200&auto=format&fit=crop" alt="メルボルンの路地とカフェ文化" />
+            <div class="card-body">
+              <h3>文化・食</h3>
+              <p class="muted">多文化社会ならではの食体験。コーヒー文化が根づき、ワイナリー巡りも人気です。</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="ビーチでのサーフィン" />
+            <div class="card-body">
+              <h3>アクセス</h3>
+              <p class="muted">日本各地からシドニー・メルボルン・ブリスベン等へ直行便あり。国内線ネットワークも発達。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 都市 -->
+    <section id="cities">
+      <div class="wrap">
+        <h2>主要都市</h2>
+        <p class="lead">都市ごとに個性がはっきり。旅のテーマに合わせて拠点を選ぼう。</p>
+        <article class="city card">
+          <img src="https://images.unsplash.com/photo-1506976785307-8732e854ad75?q=80&w=1400&auto=format&fit=crop" alt="シドニー・オペラハウスとハーバーブリッジ" />
+          <div class="card-body">
+            <h3>シドニー</h3>
+            <p class="muted">ランドマークと美しい湾岸、ビーチが魅力。フェリーでのクルーズもおすすめ。</p>
+          </div>
+        </article>
+        <div class="spacer"></div>
+        <article class="city card">
+          <img src="https://images.unsplash.com/photo-1534237710431-e2fc698436d0?q=80&w=1400&auto=format&fit=crop" alt="メルボルンの路地（レーンウェイ）" />
+          <div class="card-body">
+            <h3>メルボルン</h3>
+            <p class="muted">アートとカフェの都。レーンウェイ散策とトラムでの街歩きが楽しい。</p>
+          </div>
+        </article>
+        <div class="spacer"></div>
+        <article class="city card">
+          <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=1400&auto=format&fit=crop" alt="ブリスベンのリバーサイド風景" />
+          <div class="card-body">
+            <h3>ブリスベン</h3>
+            <p class="muted">温暖な気候とリバーサイドの散策が心地よい。ゴールドコーストへの玄関口。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 自然 -->
+    <section id="nature">
+      <div class="wrap">
+        <h2>自然・野生動物</h2>
+        <p class="lead">世界最大級のサンゴ礁や広大なアウトバック、ユニークな動物たちとの出会い。</p>
+        <div class="grid grid-3">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1496947850313-7743325fa58c?q=80&w=1200&auto=format&fit=crop" alt="グレート・バリア・リーフの海" />
+            <div class="card-body">
+              <h3>グレート・バリア・リーフ</h3>
+              <p class="muted">世界最大の珊瑚礁。シュノーケリングやクルーズで色とりどりの海へ。</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1526483360412-f4dbaf036963?q=80&w=1200&auto=format&fit=crop" alt="ウルル（エアーズロック）夕景" />
+            <div class="card-body">
+              <h3>レッドセンター</h3>
+              <p class="muted">ウルルやカタ・ジュタが佇む聖地。夕日と満天の星を体験。</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=1200&auto=format&fit=crop" alt="コアラが木に抱きつく様子" />
+            <div class="card-body">
+              <h3>野生動物</h3>
+              <p class="muted">カンガルー、コアラ、ウォンバットなど固有種がいっぱい。保護施設での見学が安心。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 気候（簡易SVGチャート） -->
+    <section id="climate">
+      <div class="wrap">
+        <h2>気候の目安</h2>
+        <p class="lead">都市ごとに差はありますが、年間を通して温暖。南半球なので季節は日本と逆です。</p>
+        <div class="chart" role="img" aria-label="シドニー・メルボルン・ブリスベンの平均気温チャート">
+          <svg viewBox="0 0 760 260" width="100%" height="260" aria-hidden="true">
+            <!-- axes -->
+            <line x1="40" y1="220" x2="740" y2="220" stroke="#394150" />
+            <line x1="40" y1="20" x2="40" y2="220" stroke="#394150" />
+            <!-- y labels -->
+            <g fill="#9aa3af" font-size="12">
+              <text x="8" y="225">0℃</text>
+              <text x="2" y="175">10℃</text>
+              <text x="2" y="125">20℃</text>
+              <text x="2" y="75">30℃</text>
+            </g>
+            <!-- month ticks -->
+            <g fill="#9aa3af" font-size="12">
+              <text x="70" y="240">1</text><text x="130" y="240">2</text><text x="190" y="240">3</text>
+              <text x="250" y="240">4</text><text x="310" y="240">5</text><text x="370" y="240">6</text>
+              <text x="430" y="240">7</text><text x="490" y="240">8</text><text x="550" y="240">9</text>
+              <text x="610" y="240">10</text><text x="670" y="240">11</text><text x="730" y="240">12</text>
+            </g>
+            <!-- helper: map temp(0-30) to y (220->50) -->
+            <!-- Sydney: 23,24,23,20,17,15,14,15,17,19,21,23 -->
+            <polyline fill="none" stroke="#34d399" stroke-width="3" points="
+              70,100 130,95 190,100 250,120 310,140 370,150 430,155 490,150 550,140 610,130 670,115 730,100" />
+            <!-- Melbourne: 20,21,19,16,13,11,10,11,13,15,17,19 -->
+            <polyline fill="none" stroke="#60a5fa" stroke-width="3" points="
+              70,120 130,115 190,125 250,140 310,155 370,165 430,170 490,165 550,155 610,145 670,135 730,125" />
+            <!-- Brisbane: 25,25,24,22,19,17,16,17,19,21,23,24 -->
+            <polyline fill="none" stroke="#f59e0b" stroke-width="3" points="
+              70,85 130,85 190,95 250,110 310,130 370,140 430,145 490,140 550,130 610,120 670,105 730,95" />
+          </svg>
+          <div class="legend" aria-hidden="true">
+            <span class="key"><span class="dot s"></span>シドニー</span>
+            <span class="key"><span class="dot m"></span>メルボルン</span>
+            <span class="key"><span class="dot b"></span>ブリスベン</span>
+          </div>
+          <p class="muted" style="margin-top:8px">※ おおまかな目安データ（℃）。実際の旅行前は最新の天気予報を確認してください。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips -->
+    <section id="tips">
+      <div class="wrap">
+        <h2>旅行のコツ</h2>
+        <ul class="tips" aria-label="旅行のコツ一覧">
+          <li><strong>日差し・紫外線対策</strong>：日焼け止め、帽子、サングラスは必携。屋外はこまめに水分補給を。</li>
+          <li><strong>キャッシュレス</strong>：クレジット/デビット決済が普及。チップは基本不要ですが、カフェ等で気持ち程度渡すことも。</li>
+          <li><strong>交通</strong>：都市部はICカード（Opal, Myki等）が便利。郊外はレンタカーで自由度UP。</li>
+          <li><strong>自然保護</strong>：保護区では立入ルールを順守。野生動物への餌やりは禁止です。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Plan -->
+    <section id="plan">
+      <div class="wrap">
+        <h2>3泊5日モデルプラン（東海岸）</h2>
+        <div class="plan" aria-label="モデルプラン">
+          <div class="day"><strong>1日目</strong>：日本出発→シドニー着。サーキュラー・キー散策、夜景クルーズ。</div>
+          <div class="day"><strong>2日目</strong>：ブルーマウンテンズ日帰り（世界遺産の奇岩と渓谷）。</div>
+          <div class="day"><strong>3日目</strong>：早朝便でブリスベン→ゴールドコースト。ビーチ＆マーケット。</div>
+          <div class="day"><strong>4日目</strong>：モートン島やカランビン野生動物保護区など自然体験。</div>
+          <div class="day"><strong>5日目</strong>：ブリスベン発→日本へ。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <h2>よくある質問</h2>
+        <div class="grid">
+          <details>
+            <summary>ベストシーズンは？</summary>
+            <p class="muted">東海岸は春（9〜11月）と秋（3〜5月）が過ごしやすく観光向き。エリアや目的によって最適な季節は変わります。</p>
+          </details>
+          <details>
+            <summary>治安はどう？</summary>
+            <p class="muted">比較的良好ですが、夜間・繁華街でのスリなど基本的な防犯対策は必要です。</p>
+          </details>
+          <details>
+            <summary>チップ文化はある？</summary>
+            <p class="muted">米国ほど一般的ではありません。テーブルサービスで特に良い対応なら10%目安でOK。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="muted">© <span id="year"></span> Australia Guide. 画像はUnsplash提供。</p>
+    </div>
+  </footer>
+
+  <script>
+    // 年号、自動スクロールTOP、軽いアクセシビリティ配慮
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('toTopBtn').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // キーボード操作で"g"押下→トップへ（簡易ショートカット）
+    addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 'g') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  </script>
+</body>
+</html>
